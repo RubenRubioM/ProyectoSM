@@ -7,7 +7,7 @@ public class KidMovement : MonoBehaviour {
 
     [SerializeField]
     private float speed;
-
+    private bool moving;
     private Vector2  positionToMove; //Variable que guarda la posicion donde has tocado
 
    	void Start () {
@@ -16,40 +16,24 @@ public class KidMovement : MonoBehaviour {
 
 
     void Update () {
-        
-        
-        if(Input.touchCount>0 && Input.GetTouch(0).phase == TouchPhase.Began) {
-            foreach (Touch touch in Input.touches) {
 
-                positionToMove = Camera.main.ScreenToWorldPoint(touch.position);
-                Debug.Log("Posicion donde has tocado: " + positionToMove);
-                Debug.Log("Posicion del personaje:" + transform.position);
-
-            }
-            Vector2 distance = positionToMove - (Vector2)transform.position;
+        if (Input.GetMouseButtonDown(0)) {
+            positionToMove = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Debug.Log(positionToMove);
             transform.position = positionToMove;
+            moving = true;
         }
-        
-        
-        
 
+        /*
+        if (moving == true) {
+            transform.Translate(new Vector2(speed, speed));
+            if (Vector2.Distance(transform.position,positionToMove ) < 0.1f) {
+                moving = false;
+            }
+        }
+        */
     }
 
-    /*
-    private void MoveTo(Vector2 distance) {
-       
-
-        Debug.Log(distance);
-
-        while ((Vector2) transform.position!=positionToMove) {
-
-            distance = positionToMove - (Vector2)transform.position;
-            transform.Translate(speed,speed,0);
-
-        }
-        
-    }
-    */
 
     private void OnTriggerEnter2D(Collider2D collision) {
 

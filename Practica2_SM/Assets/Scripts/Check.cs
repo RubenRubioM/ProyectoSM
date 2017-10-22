@@ -2,31 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class Check : MonoBehaviour {
 
     public GameObject good_panel,bad_panel;
 
 	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+		if(good_panel.activeInHierarchy || bad_panel.activeInHierarchy) {
+            good_panel.SetActive(false);
+            bad_panel.SetActive(false);
+        }
 	}
 
     private void OnMouseDown() {
-        if (gameObject.CompareTag("Plastic")) {
-            if (bad_panel.activeInHierarchy) {
-                good_panel.SetActive(true);
-            } else {
+        Scene scene = SceneManager.GetActiveScene();
+        if (scene.name.Equals("Raincoat")) {
+            if (gameObject.CompareTag("Plastic")) {
                 bad_panel.SetActive(false);
                 good_panel.SetActive(true);
+            } else {
+                good_panel.SetActive(false);
+                bad_panel.SetActive(true);
             }
-            
-        } else {
-            bad_panel.SetActive(true);
         }
+        
+
     }
 }
