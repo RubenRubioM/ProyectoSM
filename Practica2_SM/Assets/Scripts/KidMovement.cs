@@ -9,6 +9,7 @@ public class KidMovement : MonoBehaviour {
     private float speed;
     private bool moving;
     private Vector2  positionToMove; //Variable que guarda la posicion donde has tocado
+    private Vector2 distance;
 
    	void Start () {
 		
@@ -20,18 +21,38 @@ public class KidMovement : MonoBehaviour {
         if (Input.GetMouseButtonDown(0)) {
             positionToMove = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Debug.Log(positionToMove);
-            transform.position = positionToMove;
+
+            distance = new Vector2(positionToMove.x - transform.position.x, positionToMove.y - transform.position.y);
             moving = true;
+
         }
 
-        /*
-        if (moving == true) {
-            transform.Translate(new Vector2(speed, speed));
-            if (Vector2.Distance(transform.position,positionToMove ) < 0.1f) {
-                moving = false;
+        if (distance.x < 0) {
+            if (distance.y < 0) {
+                transform.Translate(-speed * Time.deltaTime, -speed * Time.deltaTime, 0);
+            }
+            if (distance.y > 0) {
+                transform.Translate(-speed * Time.deltaTime, speed * Time.deltaTime, 0);
+            }
+            if (distance.y == 0) {
+                transform.Translate(-speed * Time.deltaTime, 0, 0);
             }
         }
-        */
+
+        if (distance.x > 0) {
+            if (distance.y < 0) {
+                transform.Translate(speed * Time.deltaTime, -speed * Time.deltaTime, 0);
+            }
+            if (distance.y > 0) {
+                transform.Translate(speed * Time.deltaTime, speed * Time.deltaTime, 0);
+            }
+            if (distance.y == 0) {
+                transform.Translate(speed * Time.deltaTime, 0, 0);
+            }
+        }
+        distance = new Vector2(positionToMove.x - transform.position.x, positionToMove.y - transform.position.y);
+
+
     }
 
 
