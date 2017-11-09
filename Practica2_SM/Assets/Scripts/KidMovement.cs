@@ -9,10 +9,11 @@ public class KidMovement : MonoBehaviour {
     [SerializeField]
     private float speed;
     private Vector2 positionToMove; //Variable que guarda la posicion donde has tocado
-    
+    private ObjectsPicked objectsScript;
 
     private void Start() {
         positionToMove = transform.position;
+        objectsScript = GameObject.FindObjectOfType<ObjectsPicked>();
     }
 
     void Update() {
@@ -31,6 +32,12 @@ public class KidMovement : MonoBehaviour {
 
         if (collision.gameObject.CompareTag("Raincoat")) {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+
+        if (collision.gameObject.CompareTag("Glass")) {
+            Debug.Log("ASD");
+            objectsScript.activarMaterial(collision.gameObject);
+            Destroy(collision.gameObject);
         }
        
     }
