@@ -34,7 +34,7 @@ public class KidMovement : MonoBehaviour {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
-        if (collision.gameObject.CompareTag("Glass")) {
+        if (collision.gameObject.CompareTag("Glass") || collision.gameObject.CompareTag("Plastic") || collision.gameObject.CompareTag("Wood")) {
             Debug.Log("ASD");
             objectsScript.activarMaterial(collision.gameObject);
             Destroy(collision.gameObject);
