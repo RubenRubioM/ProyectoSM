@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+
 
 public class KidMovement : MonoBehaviour {
 
@@ -30,12 +30,8 @@ public class KidMovement : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision) {
 
-        if (collision.gameObject.CompareTag("Raincoat")) {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
-
         if (collision.gameObject.CompareTag("Glass") || collision.gameObject.CompareTag("Plastic") || collision.gameObject.CompareTag("Wood")) {
-            Debug.Log("ASD");
+            
             objectsScript.activarMaterial(collision.gameObject);
             Destroy(collision.gameObject);
         }
