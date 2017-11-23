@@ -370,6 +370,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 285947474}
     m_Modifications:
+    - target: {fileID: 114429461755558238, guid: dfb076252cdea0e489848407e932aeec,
+        type: 2}
+      propertyPath: sonidos.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 224610362992340864, guid: dfb076252cdea0e489848407e932aeec,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -460,6 +465,31 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 82026178219354498, guid: dfb076252cdea0e489848407e932aeec,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 82026178219354498, guid: dfb076252cdea0e489848407e932aeec,
+        type: 2}
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114429461755558238, guid: dfb076252cdea0e489848407e932aeec,
+        type: 2}
+      propertyPath: sonidos.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1ee3f22c38abb1b4783a66092f3742bc, type: 3}
+    - target: {fileID: 114429461755558238, guid: dfb076252cdea0e489848407e932aeec,
+        type: 2}
+      propertyPath: sonidos.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 05af608ab0684954e8de9ced1ad01400, type: 3}
+    - target: {fileID: 114429461755558238, guid: dfb076252cdea0e489848407e932aeec,
+        type: 2}
+      propertyPath: sonidos.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 81063e77dceb1894b924fe3df0431601, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dfb076252cdea0e489848407e932aeec, type: 2}
   m_IsPrefabParent: 0

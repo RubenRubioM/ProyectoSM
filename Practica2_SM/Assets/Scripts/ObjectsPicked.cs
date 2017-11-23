@@ -9,6 +9,7 @@ public class ObjectsPicked : MonoBehaviour {
     int contador = 0;
     private static bool[] matConseguido = new bool[3];
     private AudioSource audiosource;
+    public AudioClip[] sonidos;
 
     private void Start() {
         
@@ -35,6 +36,16 @@ public class ObjectsPicked : MonoBehaviour {
             if (materiales[i].CompareTag(material.tag)) {
                 materiales[i].SetActive(true);
                 matConseguido[i] = true;
+                if (materiales[i].CompareTag("Wood")) {
+                    audiosource.clip = sonidos[1];
+                }
+                if (materiales[i].CompareTag("Glass")) {
+                    audiosource.clip = sonidos[0];
+                }
+                if (materiales[i].CompareTag("Plastic")) {
+                    audiosource.clip = sonidos[2];
+                }
+
                 audiosource.Play();
                 contador++;
             }
