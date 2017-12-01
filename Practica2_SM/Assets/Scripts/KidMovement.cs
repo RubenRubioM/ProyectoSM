@@ -10,10 +10,12 @@ public class KidMovement : MonoBehaviour {
     private float speed;
     private Vector2 positionToMove; //Variable que guarda la posicion donde has tocado
     private ObjectsPicked objectsScript;
+    private BackgroundController BackgroundControllerScript;
 
     private void Start() {
         positionToMove = transform.position;
         objectsScript = GameObject.FindObjectOfType<ObjectsPicked>();
+        BackgroundControllerScript = GameObject.FindObjectOfType<Canvas>().GetComponent<BackgroundController>();
     }
 
     void Update() {
@@ -34,6 +36,11 @@ public class KidMovement : MonoBehaviour {
             
             objectsScript.activarMaterial(collision.gameObject);
             Destroy(collision.gameObject);
+        }
+
+        if(collision.gameObject.CompareTag("Puerta"))
+        {
+            BackgroundControllerScript.CambioEscenario1();
         }
        
     }
