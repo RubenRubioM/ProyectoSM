@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 526a1bea2f099cd4d9009c12de952e85
+timeCreated: 1512212415
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Mestra2(Memima Puntejada)
+  fontNames:
+  - Mestra2(Memima Puntejada)
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

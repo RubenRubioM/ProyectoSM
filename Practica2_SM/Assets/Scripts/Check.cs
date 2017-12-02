@@ -5,27 +5,49 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class Check : MonoBehaviour {
 
-    public GameObject good_panel,bad_panel;
+    public GameObject good_panel;
+    private AudioSource audiosource;
+    public AudioClip[] audio;
+    [SerializeField]
+    private SpriteRenderer comparador;
+    [SerializeField]
+    private Sprite[] sprites;
+    int contador = 0;
 
 	void Start () {
-		if(good_panel.activeInHierarchy || bad_panel.activeInHierarchy) {
+		if(good_panel.activeInHierarchy) {
             good_panel.SetActive(false);
-            bad_panel.SetActive(false);
+            
         }
+        Debug.Log(comparador.sprite.name);
+        audiosource = GetComponent<AudioSource>();
+        comparador.sprite = sprites[contador];
+        contador++;
+       
 	}
 
     private void OnMouseDown() {
-        Scene scene = SceneManager.GetActiveScene();
-        if (scene.name.Equals("Raincoat")) {
-            if (gameObject.CompareTag("Plastic")) {
-                bad_panel.SetActive(false);
-                good_panel.SetActive(true);
-            } else {
-                good_panel.SetActive(false);
-                bad_panel.SetActive(true);
-            }
-        }
-        
 
+        if (comparador.sprite.name.Equals(gameObject.tag)) {
+            //Acierto
+            
+            StartCoroutine(cambioObjeto(sprites[contador]));
+            contador++;
+        } else {
+            //Fallo
+            audiosource.clip = audio[1];
+            audiosource.Play();
+        }       
+
+    }
+
+    IEnumerator cambioObjeto(Sprite s) {
+
+        audiosource.clip = audio[0];
+        audiosource.Play();
+
+        yield return new WaitForSeconds(3f);
+
+        //cambio de sprite
     }
 }

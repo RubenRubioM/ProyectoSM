@@ -11,6 +11,7 @@ public class KidMovement : MonoBehaviour {
     private Vector2 positionToMove; //Variable que guarda la posicion donde has tocado
     private ObjectsPicked objectsScript;
     private BackgroundController BackgroundControllerScript;
+    private bool isMoving;
 
     private void Start() {
         positionToMove = transform.position;
@@ -22,12 +23,23 @@ public class KidMovement : MonoBehaviour {
 
         if (Input.GetMouseButtonDown(0)) {
             positionToMove = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            isMoving = true;
 
         }
 
-        transform.position = Vector2.MoveTowards(transform.position, positionToMove, speed * Time.deltaTime);
+        if (isMoving) {
+            transform.position = Vector2.MoveTowards(transform.position, positionToMove, speed * Time.deltaTime);
+        }
+        
       
         
+    }
+
+
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if(collision.gameObject.name.Equals("Top Collider")) {
+            isMoving = false;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
@@ -40,6 +52,7 @@ public class KidMovement : MonoBehaviour {
 
         if(collision.gameObject.CompareTag("Puerta"))
         {
+            isMoving = false;
             BackgroundControllerScript.CambioEscenario1();
         }
        
