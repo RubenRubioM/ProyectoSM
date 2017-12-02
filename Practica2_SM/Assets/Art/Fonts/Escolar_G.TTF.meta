@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 46bedeff80a13c241bfc56e8d373c9d6
+timeCreated: 1512212415
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Escolar1
+  fontNames:
+  - Escolar1
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
