@@ -5,12 +5,16 @@ using UnityEngine;
 public class BackgroundController : MonoBehaviour {
 
     public SpriteRenderer sr;
-    public Sprite sprite1;
-    public GameObject[] toDisable;
-    public GameObject Madera;
+    public Sprite[] sprites;
+    public GameObject[] toDisable1, toDisable2, toDisable3;
+    public GameObject Madera, Vidrio, Plastico;
+    private AudioSource audiosource;
+    public AudioClip[] clips;
 	// Use this for initialization
 	void Start () {
-        
+        audiosource = GetComponent<AudioSource>();
+        audiosource.clip = clips[0];
+        audiosource.Play();
 	}
 	
 	// Update is called once per frame
@@ -20,9 +24,33 @@ public class BackgroundController : MonoBehaviour {
 
     public void CambioEscenario1() {
 
-        sr.sprite = sprite1;
+        audiosource.clip = clips[1];
+        audiosource.Play();
+        sr.sprite = sprites[0];
         Madera.SetActive(true);
-        foreach(GameObject go in toDisable) {
+        foreach(GameObject go in toDisable1) {
+            go.SetActive(false);
+        }
+    }
+
+    public void CambioEscenario2() {
+
+        audiosource.clip = clips[2];
+        audiosource.Play();
+        sr.sprite = sprites[1];
+        Vidrio.SetActive(true);
+        foreach (GameObject go in toDisable2) {
+            go.SetActive(false);
+        }
+    }
+
+    public void CambioEscenario3(){
+
+        audiosource.clip = clips[3];
+        audiosource.Play();
+        sr.sprite = sprites[3];
+        Plastico.SetActive(true);
+        foreach (GameObject go in toDisable3) {
             go.SetActive(false);
         }
     }
