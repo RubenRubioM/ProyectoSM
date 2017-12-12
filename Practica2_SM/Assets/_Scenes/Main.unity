@@ -408,6 +408,7 @@ MonoBehaviour:
   sprites:
   - {fileID: 21300000, guid: 09f736b27a202984586c1ec1694a2864, type: 3}
   - {fileID: 21300000, guid: f3804caf7353a5b4e96e1fb284b4edf9, type: 3}
+  - {fileID: 21300000, guid: 6dc057b6aea9fd54fa62321f0fdf37eb, type: 3}
   toDisable1:
   - {fileID: 1474792653}
   - {fileID: 1101324535}
@@ -601,6 +602,10 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: b1e4323a4a69fc8438136b3cacbe2d09,
         type: 3}
+    - target: {fileID: 1540131616281616, guid: 3937d788746fa4042b5cbbc56ea4dc36, type: 2}
+      propertyPath: m_TagString
+      value: Plastic
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3937d788746fa4042b5cbbc56ea4dc36, type: 2}
   m_IsPrefabParent: 0

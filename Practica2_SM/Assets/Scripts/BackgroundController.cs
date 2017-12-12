@@ -13,7 +13,11 @@ public class BackgroundController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         audiosource = GetComponent<AudioSource>();
+
         audiosource.clip = clips[0];
+        if (audiosource.isPlaying) {
+            audiosource.Stop();
+        }
         audiosource.Play();
 	}
 	
@@ -25,6 +29,9 @@ public class BackgroundController : MonoBehaviour {
     public void CambioEscenario1() {
 
         audiosource.clip = clips[1];
+        if (audiosource.isPlaying) {
+            audiosource.Stop();
+        }
         audiosource.Play();
         sr.sprite = sprites[0];
         Madera.SetActive(true);
@@ -36,6 +43,9 @@ public class BackgroundController : MonoBehaviour {
     public void CambioEscenario2() {
 
         audiosource.clip = clips[2];
+        if (audiosource.isPlaying) {
+            audiosource.Stop();
+        }
         audiosource.Play();
         sr.sprite = sprites[1];
         Vidrio.SetActive(true);
@@ -47,8 +57,11 @@ public class BackgroundController : MonoBehaviour {
     public void CambioEscenario3(){
 
         audiosource.clip = clips[3];
+        if (audiosource.isPlaying) {
+            audiosource.Stop();
+        }
         audiosource.Play();
-        sr.sprite = sprites[3];
+        sr.sprite = sprites[2];
         Plastico.SetActive(true);
         foreach (GameObject go in toDisable3) {
             go.SetActive(false);

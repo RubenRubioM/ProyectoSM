@@ -38,19 +38,28 @@ public class ObjectsPicked : MonoBehaviour {
                 matConseguido[i] = true;
                 if (materiales[i].CompareTag("Wood")) {
                     audiosource.clip = sonidos[1];
+                    if (audiosource.isPlaying) {
+                        audiosource.Stop();
+                    }
                     audiosource.Play();
-                    audiosource.volume = 0.4f;
+                    audiosource.volume = 0.3f;
                     StartCoroutine(esperarSonido(3));
                 }
                 if (materiales[i].CompareTag("Glass")) {
                     audiosource.clip = sonidos[0];
+                    if (audiosource.isPlaying) {
+                        audiosource.Stop();
+                    }
                     audiosource.Play();
-                    audiosource.volume = 0.4f;
+                    audiosource.volume = 0.3f;
                     StartCoroutine(esperarSonido(4));
                 }
                 if (materiales[i].CompareTag("Plastic")) {
                     audiosource.clip = sonidos[2];
-                    audiosource.volume = 0.4f;
+                    if (audiosource.isPlaying) {
+                        audiosource.Stop();
+                    }
+                    audiosource.volume = 0.3f;
                     audiosource.Play();
                     StartCoroutine(esperarSonido(5));
                 }

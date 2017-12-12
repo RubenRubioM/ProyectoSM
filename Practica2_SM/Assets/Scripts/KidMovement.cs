@@ -93,7 +93,7 @@ public class KidMovement : MonoBehaviour {
 
     IEnumerator esperaParaCambiarAtienda() {
         
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(8f);
         
         BackgroundControllerScript.CambioEscenario2();
 
@@ -102,7 +102,7 @@ public class KidMovement : MonoBehaviour {
 
     IEnumerator esperaParaCambiarAHabitacion() {
 
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(8f);
 
         BackgroundControllerScript.CambioEscenario3();
 

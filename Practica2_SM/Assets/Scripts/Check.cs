@@ -24,6 +24,9 @@ public class Check : MonoBehaviour {
         
         contador++;
         audiosource.clip = clips[0];
+        if (audiosource.isPlaying) {
+            audiosource.Stop();
+        }
         audiosource.Play();
         StartCoroutine(esperaAcabarPrimerAudio());
 	}
@@ -47,10 +50,16 @@ public class Check : MonoBehaviour {
         } else if (comparador.sprite.name.Equals("vaso") && gameObject.tag.Equals("Glass")) {
             //Acierto
             audiosource.clip = clips[6];
+            if (audiosource.isPlaying) {
+                audiosource.Stop();
+            }
             audiosource.Play();
             StartCoroutine(FinalJuego());
         } else {
             audiosource.clip = clips[7];
+            if (audiosource.isPlaying) {
+                audiosource.Stop();
+            }
             audiosource.Play();
         }
 
@@ -59,10 +68,18 @@ public class Check : MonoBehaviour {
     }
 
     IEnumerator FinalJuego() {
+        good_panel.SetActive(true);
         yield return new WaitForSeconds(5f);
 
         audiosource.clip = clips[8];
+        if (audiosource.isPlaying) {
+            audiosource.Stop();
+        }
         audiosource.Play();
+
+        yield return new WaitForSeconds(4f);
+
+        Application.Quit();
     }
 
     IEnumerator esperaAcabarPrimerAudio() {
@@ -70,6 +87,9 @@ public class Check : MonoBehaviour {
         yield return new WaitForSeconds(3f);
 
         audiosource.clip = clips[1];
+        if (audiosource.isPlaying) {
+            audiosource.Stop();
+        }
         audiosource.Play();
     }
 
@@ -78,11 +98,17 @@ public class Check : MonoBehaviour {
 
         if (s.name.Equals("mesa")) {
             audiosource.clip = clips[4];
+            if (audiosource.isPlaying) {
+                audiosource.Stop();
+            }
             audiosource.Play();
         }
 
         if (s.name.Equals("vaso")) {
             audiosource.clip = clips[5];
+            if (audiosource.isPlaying) {
+                audiosource.Stop();
+            }
             audiosource.Play();
         }
 
@@ -104,6 +130,8 @@ public class Check : MonoBehaviour {
             comparador.transform.localScale *= 0.5f;
             audiosource.clip = clips[3];
             audiosource.Play();
+
+            
         }
     }
 }
