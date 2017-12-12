@@ -85,7 +85,7 @@ public class KidMovement : MonoBehaviour {
         if(collision.gameObject.CompareTag("Puerta"))
         {
             isMoving = false;
-            Debug.Log("ASD");
+            
             BackgroundControllerScript.CambioEscenario1();
         }
        

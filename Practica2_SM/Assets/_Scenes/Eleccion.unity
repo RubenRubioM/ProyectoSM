@@ -411,6 +411,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 787632e629b179947b446b4e5d6de6e4, type: 3}
   - {fileID: 8300000, guid: 39c813970d1a6a34597fb62ad0307b5c, type: 3}
   - {fileID: 8300000, guid: aa6b59bcdedd10845bbf57b2c38fae52, type: 3}
+  - {fileID: 8300000, guid: 74534ef64250b9c40be1c18ec8326fdb, type: 3}
   comparador: {fileID: 335402786}
   sprites:
   - {fileID: 21300000, guid: fc8398ee4c428f344b83d1092b261698, type: 3}
@@ -647,6 +648,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 787632e629b179947b446b4e5d6de6e4, type: 3}
   - {fileID: 8300000, guid: 39c813970d1a6a34597fb62ad0307b5c, type: 3}
   - {fileID: 8300000, guid: aa6b59bcdedd10845bbf57b2c38fae52, type: 3}
+  - {fileID: 8300000, guid: 74534ef64250b9c40be1c18ec8326fdb, type: 3}
   comparador: {fileID: 335402786}
   sprites:
   - {fileID: 21300000, guid: fc8398ee4c428f344b83d1092b261698, type: 3}
@@ -960,6 +962,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 787632e629b179947b446b4e5d6de6e4, type: 3}
   - {fileID: 8300000, guid: 39c813970d1a6a34597fb62ad0307b5c, type: 3}
   - {fileID: 8300000, guid: aa6b59bcdedd10845bbf57b2c38fae52, type: 3}
+  - {fileID: 8300000, guid: 74534ef64250b9c40be1c18ec8326fdb, type: 3}
   comparador: {fileID: 335402786}
   sprites:
   - {fileID: 21300000, guid: fc8398ee4c428f344b83d1092b261698, type: 3}

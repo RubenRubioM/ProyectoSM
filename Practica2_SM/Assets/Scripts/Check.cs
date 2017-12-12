@@ -48,6 +48,7 @@ public class Check : MonoBehaviour {
             //Acierto
             audiosource.clip = clips[6];
             audiosource.Play();
+            StartCoroutine(FinalJuego());
         } else {
             audiosource.clip = clips[7];
             audiosource.Play();
@@ -57,7 +58,12 @@ public class Check : MonoBehaviour {
 
     }
 
-    
+    IEnumerator FinalJuego() {
+        yield return new WaitForSeconds(5f);
+
+        audiosource.clip = clips[8];
+        audiosource.Play();
+    }
 
     IEnumerator esperaAcabarPrimerAudio() {
 
