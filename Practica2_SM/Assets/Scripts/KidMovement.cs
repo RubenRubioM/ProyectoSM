@@ -15,6 +15,7 @@ public class KidMovement : MonoBehaviour {
     private Animator animator;
     private bool animationPlaying;
     private Rigidbody2D rb;
+    
 
     private void Start() {
         positionToMove = transform.position;
@@ -91,9 +92,9 @@ public class KidMovement : MonoBehaviour {
     }
 
     IEnumerator esperaParaCambiarAtienda() {
-
+        
         yield return new WaitForSeconds(10f);
-
+        
         BackgroundControllerScript.CambioEscenario2();
 
     }

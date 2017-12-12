@@ -7,47 +7,97 @@ public class Check : MonoBehaviour {
 
     public GameObject good_panel;
     private AudioSource audiosource;
-    public AudioClip[] audio;
+    public AudioClip[] clips;
     [SerializeField]
     private SpriteRenderer comparador;
     [SerializeField]
     private Sprite[] sprites;
-    int contador = 0;
+    static int contador = 0;
 
 	void Start () {
 		if(good_panel.activeInHierarchy) {
             good_panel.SetActive(false);
             
         }
-        Debug.Log(comparador.sprite.name);
+        
         audiosource = GetComponent<AudioSource>();
-        comparador.sprite = sprites[contador];
+        
         contador++;
-       
+        audiosource.clip = clips[0];
+        audiosource.Play();
+        StartCoroutine(esperaAcabarPrimerAudio());
 	}
+
+    private void Update() {
+        
+    }
 
     private void OnMouseDown() {
 
-        if (comparador.sprite.name.Equals(gameObject.tag)) {
+        if (comparador.sprite.name.Equals("chubasquero") && gameObject.tag.Equals("Plastic")) {
             //Acierto
+            Debug.Log("ACIERTO");
             
-            StartCoroutine(cambioObjeto(sprites[contador]));
+            StartCoroutine(cambioObjeto(sprites[1]));
             contador++;
-        } else {
-            //Fallo
-            audiosource.clip = audio[1];
+        } else if(comparador.sprite.name.Equals("mesa") && gameObject.tag.Equals("Wood")) {
+            //Acierto
+            StartCoroutine(cambioObjeto(sprites[2]));
+            contador++;
+        } else if (comparador.sprite.name.Equals("vaso") && gameObject.tag.Equals("Glass")) {
+            //Acierto
+            audiosource.clip = clips[6];
             audiosource.Play();
-        }       
+        } else {
+            audiosource.clip = clips[7];
+            audiosource.Play();
+        }
 
+
+
+    }
+
+    
+
+    IEnumerator esperaAcabarPrimerAudio() {
+
+        yield return new WaitForSeconds(3f);
+
+        audiosource.clip = clips[1];
+        audiosource.Play();
     }
 
     IEnumerator cambioObjeto(Sprite s) {
 
-        audiosource.clip = audio[0];
-        audiosource.Play();
 
-        yield return new WaitForSeconds(3f);
+        if (s.name.Equals("mesa")) {
+            audiosource.clip = clips[4];
+            audiosource.Play();
+        }
 
+        if (s.name.Equals("vaso")) {
+            audiosource.clip = clips[5];
+            audiosource.Play();
+        }
+
+        good_panel.SetActive(true);
+        yield return new WaitForSeconds(4f);
+
+        good_panel.SetActive(false);
         //cambio de sprite
+
+        if (s.name.Equals("mesa")) {
+            comparador.sprite = s;
+            comparador.transform.localScale *= 2.5f;
+            audiosource.clip = clips[2];
+            audiosource.Play();
+        }
+
+        if (s.name.Equals("vaso")) {
+            comparador.sprite = s;
+            comparador.transform.localScale *= 0.5f;
+            audiosource.clip = clips[3];
+            audiosource.Play();
+        }
     }
 }

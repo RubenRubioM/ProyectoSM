@@ -39,20 +39,22 @@ public class ObjectsPicked : MonoBehaviour {
                 if (materiales[i].CompareTag("Wood")) {
                     audiosource.clip = sonidos[1];
                     audiosource.Play();
-                    StartCoroutine(esperarSonido(4));
+                    audiosource.volume = 0.4f;
+                    StartCoroutine(esperarSonido(3));
                 }
                 if (materiales[i].CompareTag("Glass")) {
                     audiosource.clip = sonidos[0];
                     audiosource.Play();
-                    StartCoroutine(esperarSonido(5));
+                    audiosource.volume = 0.4f;
+                    StartCoroutine(esperarSonido(4));
                 }
                 if (materiales[i].CompareTag("Plastic")) {
                     audiosource.clip = sonidos[2];
+                    audiosource.volume = 0.4f;
                     audiosource.Play();
-                    StartCoroutine(esperarSonido(6));
+                    StartCoroutine(esperarSonido(5));
                 }
 
-                
                 contador++;
             }
         }
@@ -68,6 +70,7 @@ public class ObjectsPicked : MonoBehaviour {
         yield return new WaitForSeconds(2f);
 
         audiosource.clip = sonidos[i];
+        audiosource.volume = 1f;
         audiosource.Play();
     }
 
