@@ -13,6 +13,7 @@ public class Check : MonoBehaviour {
     [SerializeField]
     private Sprite[] sprites;
     static int contador = 0;
+	bool mesaSinClickar, vasoSinClickar;
 
 	void Start () {
 		if(good_panel.activeInHierarchy) {
@@ -79,7 +80,7 @@ public class Check : MonoBehaviour {
 
         yield return new WaitForSeconds(4f);
 
-        Application.Quit();
+		SceneManager.LoadScene (0);
     }
 
     IEnumerator esperaAcabarPrimerAudio() {
@@ -118,14 +119,16 @@ public class Check : MonoBehaviour {
         good_panel.SetActive(false);
         //cambio de sprite
 
-        if (s.name.Equals("mesa")) {
+        if (s.name.Equals("mesa") && !mesaSinClickar) {
+			mesaSinClickar = true;
             comparador.sprite = s;
             comparador.transform.localScale *= 2.5f;
             audiosource.clip = clips[2];
             audiosource.Play();
         }
 
-        if (s.name.Equals("vaso")) {
+        if (s.name.Equals("vaso") && !vasoSinClickar) {
+			vasoSinClickar = true;
             comparador.sprite = s;
             comparador.transform.localScale *= 0.5f;
             audiosource.clip = clips[3];

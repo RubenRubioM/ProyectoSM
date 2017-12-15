@@ -152,6 +152,11 @@ Prefab:
       propertyPath: enterShop
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 50503283958435292, guid: a8f4986480add0946b6b795074fe3a1b,
+        type: 2}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a8f4986480add0946b6b795074fe3a1b, type: 2}
   m_IsPrefabParent: 0
@@ -875,6 +880,18 @@ Prefab:
       propertyPath: sonidos.Array.data[5]
       value: 
       objectReference: {fileID: 8300000, guid: 74534ef64250b9c40be1c18ec8326fdb, type: 3}
+    - target: {fileID: 1977816283371860, guid: dfb076252cdea0e489848407e932aeec, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1852716934800030, guid: dfb076252cdea0e489848407e932aeec, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1417089526590068, guid: dfb076252cdea0e489848407e932aeec, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dfb076252cdea0e489848407e932aeec, type: 2}
   m_IsPrefabParent: 0
